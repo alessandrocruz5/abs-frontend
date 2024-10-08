@@ -1,0 +1,37 @@
+<div class="m-10 flex justify-center">
+  <div class="mx-40 bg-gray-100 rounded-lg p-10 flex flex-col w-3/5">
+    <div class="flex justify-between mb-10">
+      <h2 class="text-3xl font-bold">Your Appointments</h2>
+      <button
+        class="bg-blue-700 rounded-lg py-2 px-3 text-white"
+        routerLink="/book-appointment"
+      >
+        Book New Appointment
+      </button>
+    </div>
+    <div>
+      <ul class="mb-6 space-y-6">
+        @for (appointment of appointments; track appointment.appointmentId) {
+        <li class="text-xl flex justify-between">
+          {{ appointment.appointmentDateTime | date : "medium" }} -
+          {{ appointment.description }}
+          <div class="flex space-x-4">
+            <button
+              (click)="editAppointment(appointment.appointmentId!)"
+              class="text-lg px-2 py-1 bg-green-500 rounded-lg text-white"
+            >
+              Edit
+            </button>
+            <button
+              (click)="deleteAppointment(appointment)"
+              class="text-lg px-2 py-1 bg-red-500 rounded-lg text-white"
+            >
+              Delete
+            </button>
+          </div>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>

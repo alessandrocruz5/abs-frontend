@@ -1,0 +1,13 @@
+<form (ngSubmit)="onSubmit()">
+  <input [(ngModel)]="user.username" name="username" placeholder="Username" required>
+  <input [(ngModel)]="user.email" name="email" type="email" placeholder="Email" required>
+  <input [(ngModel)]="user.password" name="password" type="password" placeholder="Password" required>
+  <input [(ngModel)]="user.firstName" name="firstName" placeholder="First Name" required>
+  <input [(ngModel)]="user.lastName" name="lastName" placeholder="Last Name" required>
+  <input [(ngModel)]="user.phoneNumber" name="phoneNumber" placeholder="Phone Number" required>
+  <select [(ngModel)]="user.preferredContactMethod" name="preferredContactMethod" required>
+    <option value="email">Email</option>
+    <option value="phone">Phone</option>
+  </select>
+  <button type="submit">Register</button>
+</form>

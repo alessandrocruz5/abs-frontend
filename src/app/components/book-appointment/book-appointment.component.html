@@ -1,0 +1,66 @@
+<div class="m-10 flex justify-center">
+  <div class="bg-gray-100 px-20 py-10 rounded-lg shadow-md flex flex-col w-3/5">
+    <p class="flex justify-center text-3xl font-bold mb-10">Book Appointment</p>
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+      <div class="space-y-10">
+        <div class="flex justify-between">
+          <label class="text-xl font-bold" for="appointmentDateTime"
+            >Appointment Date and Time:</label
+          >
+          <input
+            id="appointmentDateTime"
+            formControlName="appointmentDateTime"
+            type="datetime-local"
+            class="w-64"
+            required
+          />
+          <div
+            *ngIf="
+              appointmentForm.get('appointmentDateTime')?.invalid &&
+              appointmentForm.get('appointmentDateTime')?.touched
+            "
+          >
+            Date and time is required
+          </div>
+        </div>
+
+        <div class="flex justify-between">
+          <label class="text-xl font-bold" for="description"
+            >Description:</label
+          >
+          <textarea
+            id="description"
+            formControlName="description"
+            placeholder="Description"
+            required
+            class="w-64"
+          ></textarea>
+          <div
+            *ngIf="
+              appointmentForm.get('description')?.invalid &&
+              appointmentForm.get('description')?.touched
+            "
+          >
+            Description is required
+          </div>
+        </div>
+        <div class="flex justify-center space-x-4">
+          <button
+            class="bg-blue-700 rounded-lg text-white px-4 py-2"
+            type="submit"
+            [disabled]="appointmentForm.invalid"
+          >
+            Book Appointment
+          </button>
+          <button
+            type="button"
+            routerLink="/dashboard"
+            class="bg-red-700 rounded-lg text-white px-4 py-2"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

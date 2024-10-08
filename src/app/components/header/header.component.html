@@ -1,0 +1,18 @@
+<div class="bg-gray-800 text-white">
+  <div class="flex justify-center items-center p-4">
+    <p class="text-4xl font-bold">Appointment Booking System</p>
+  </div>
+  <div class="flex text-xl justify-center space-x-10 p-4">
+    <ng-container *ngIf="isLoggedIn; else notLoggedIn">
+      <button routerLink="/dashboard">Bookings</button>
+      <button routerLink="/book-appointment">Book an Appointment</button>
+      <button (click)="logout()">Log Out</button>
+    </ng-container>
+    <ng-template #notLoggedIn>
+      <button *ngIf="!isRegisterRoute" (click)="navigateToRegister()">
+        Register
+      </button>
+      <button *ngIf="isRegisterRoute" (click)="navigateToLogin()">Login</button>
+    </ng-template>
+  </div>
+</div>

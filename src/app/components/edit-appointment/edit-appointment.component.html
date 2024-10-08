@@ -1,0 +1,49 @@
+<div class="m-10 flex justify-center">
+  <div class="bg-gray-100 px-20 py-10 rounded-lg shadow-md flex flex-col w-3/5">
+    <p class="flex justify-center text-3xl font-bold mb-10">Edit Appointment</p>
+    <form [formGroup]="appointmentForm" (ngSubmit)="onSubmit()">
+      <div class="space-y-10">
+        <div class="flex justify-between">
+          <label for="appointmentDateTime" class="text-xl font-bold"
+            >Appointment Date and Time:</label
+          >
+          <input
+            type="datetime-local"
+            id="appointmentDateTime"
+            formControlName="appointmentDateTime"
+            class="form-control"
+            class="w-64"
+          />
+        </div>
+        <div class="flex justify-between">
+          <label for="description" class="text-xl font-bold"
+            >Description:</label
+          >
+          <textarea
+            id="description"
+            formControlName="description"
+            class="form-control"
+            class="w-64"
+            rows="3"
+          ></textarea>
+        </div>
+        <div class="flex justify-center space-x-4">
+          <button
+            type="submit"
+            class="bg-blue-700 rounded-lg text-white px-4 py-2"
+            [disabled]="!appointmentForm.valid"
+          >
+            Update Appointment
+          </button>
+          <button
+            type="button"
+            class="bg-red-700 rounded-lg text-white px-4 py-2"
+            routerLink="/dashboard"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
